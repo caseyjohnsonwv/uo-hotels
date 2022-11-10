@@ -1,3 +1,5 @@
+.vscode/
+
 Include/
 Lib/
 Scripts/
@@ -6,3 +8,5 @@ Scripts/
 
 *.pyc
 __pycache__
+
+*.xlsx

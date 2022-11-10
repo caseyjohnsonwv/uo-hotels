@@ -7,9 +7,13 @@ class HotelRate:
 		self.nights = nights
 		self.search_url = search_url
 		self.promo = promo
+		self.total = rate*nights
 
 	def __repr__(self):
-		return f"${self.rate*self.nights} ({self.check_in} - {self.check_out} @ ${self.rate}/night): {self.name}"
+		return f"${self.total} ({self.check_in} - {self.check_out} @ ${self.rate}/night): {self.name}"
 
 	def as_csv_row(self):
-		return [self.rate, self.check_in, self.check_out, self.nights, self.name, self.search_url, self.promo]
+		return [self.total, self.rate, self.check_in, self.check_out, self.nights, self.name, self.promo, self.search_url]
+
+	def csv_header_row():
+		return ['Total', 'Rate', 'Check In', 'Check Out', 'Nights', 'Property', 'Promo', 'URL']
