@@ -19,7 +19,7 @@ class UO:
         soup = BeautifulSoup(resp.text, 'html.parser')
         names = [r.text for r in soup.find_all('a', {'class': 'wsName'})]
         rates = [r.text for r in soup.find_all('span', {'class': 'ws-number'})]
-        rates = [int(r[1:]) for r in rates]
+        rates = [int(r.encode().decode('ascii')[1:]) for r in rates]
 
         assert len(names) == len(rates)
         for i,rate in enumerate(rates):
